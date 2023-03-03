@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApplication4.Models.Products>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3>Products</h3>
+        <div class="d-flex justify-content-end mb-1">
+            @Html.ActionLink("Add New", "Create", "Products", new { }, new { @class = "btn btn-primary btn-sm" })
+        </div>
+        <table class="table table-bordered">
+            <thead class="bg-secondary">
+                <tr>
+
+                    <th>@Html.DisplayNameFor(Model=>Model.Name)</th>
+                    <th>@Html.DisplayNameFor(Model => Model.Description)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var b in Model)
+                {
+                    <tr>
+
+                        <td>@Html.DisplayFor(x => b.Name)</td>
+                        <td>@Html.DisplayFor(x => b.Description)</td>
+            
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "Products", new { id = b.Id }, new { @class = "btn btn-secondary btn-sm" })
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
